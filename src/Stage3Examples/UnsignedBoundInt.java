@@ -16,7 +16,7 @@ public class UnsignedBoundInt {
 
 
         // the below loop invariant is not enough to prove that "x += ys[i]" is valid
-        // something more powerful is needed, for now the @ has been left out so it can serve as purely a comment
+        // something more powerful is needed, for now the 'at' has been left out so it can serve as purely a comment
         // loop_invariant (\forall int i1; 0 <= i1 && i1 < ys.length ==> ys[i1] == 0);
 
         //@ loop_invariant Perm(ys[*],1);
