@@ -48,5 +48,6 @@ public class ValidatedRawSQL {
         if (message6 != null) {
             executeSQL(message6);
         }
+        executeSQL(message1);
     }
 }
