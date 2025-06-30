@@ -3,6 +3,7 @@ package UnsortedExamples;
 public class StrictCheckingSimple {
     //@ subtype range(int x)(int bottom, int top) = x >= bottom && x <= top;
     //@ subtype mulId(int x)() = x == 1;
+    //@ subtype nonNull(int[] xs)() = xs != null;
 
     public static void main(String[] args) {
         /*@ strict range(0, 128) @*/ int x = (128+2)-2;
@@ -18,5 +19,17 @@ public class StrictCheckingSimple {
 
     private static int addOne(int y) {
         return y+1;
+    }
+
+    //@ requires Perm(xs[*], read);
+    private static int avg(/*@ nonNull @*/ int[] xs) {
+        int result = 0;
+        //@ loop_invariant 0 <= i && i <= xs.length;
+        /*@ loop_invariant (\forall* int i; 0 <= i && i < xs.length;
+            Perm(xs[i], read)); @*/
+        for (int i=0; i<xs.length; i++) {
+            result += xs[i];
+        }
+        return result;
     }
 }

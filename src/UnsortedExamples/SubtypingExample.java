@@ -9,15 +9,14 @@ public class SubtypingExample {
     x < length; @*/
 
     //@ ensures \result == x/y;
-    public static int division(int x,
-            /*@ NonZero @*/ int y) {
+    public static int division(int x, /*@ NonZero @*/ int y) {
         return x/y;
     }
 
     public static void main(String[] args) {
-               /*@ Byte @*/ int result = division(3,5);
-               /*@ NonNull @*/ int[] array = new int[4];
-               /*@ Index(4) @*/ int index = 3;
+        /*@ Byte @*/ int result = division(3,5);
+        /*@ NonNull @*/ int[] array = new int[4];
+        /*@ Index(4) @*/ int index = 3;
         array[index] = result;
     }
 }
